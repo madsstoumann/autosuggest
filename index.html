@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <title>AutoSuggest</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="autosuggest.css">
+</head>
+<body>
+
+  <label>
+    <strong>Choose your browser from the list</strong>
+    <input
+      autocapitalize="off"
+      autocomplete="off"
+      autocorrect="off"
+      list="browsers"
+      spellcheck="false"
+      type="search">
+  </label>
+  <datalist id="browsers">
+    <option value="Edge">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+  </datalist>
+
+  <label>
+    <strong>DAWA - Danish Address Lookup</strong>
+    <input
+      autocapitalize="off"
+      autocomplete="off"
+      autocorrect="off"
+      data-api="//dawa.aws.dk/adresser/autocomplete?side=1&per_side=10&q="
+      data-api-cache="0"
+      data-api-key="tekst"
+      list="dawa"
+      minlength="3"
+      spellcheck="false"
+      type="search">
+  </label>
+  <datalist id="dawa"><option value=""></option></datalist>
+
+  <label>
+    <strong>JSON placeholder</strong>
+    <input
+      autocapitalize="off"
+      autocomplete="off"
+      autocorrect="off"
+      data-api="//jsonplaceholder.typicode.com/albums/?_limit=10&q="
+      data-api-key="title"
+      list="jsonplaceholder"
+      minlength="3"
+      spellcheck="false"
+      type="search">
+  </label>
+  <datalist id="jsonplaceholder"><option value=""></option></datalist>
+
+<script src="autosuggest.js"></script>
+<script>
+  const inputs = document.querySelectorAll('[list]');
+  inputs.forEach(input => {
+    if (input.dataset.api) {
+      input.addEventListener('autoSuggestSelect', event => { console.info(event.detail) });
+      autoSuggest(input);
+    }
+  })
+</script>
+</body>
+</html>

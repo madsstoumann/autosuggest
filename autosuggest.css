@@ -1,0 +1,29 @@
+body {
+	font-family: ui-sans-serif, system-ui, sans-serif;
+	padding: 1rem;
+}
+label, label > strong {
+	display: block;
+}
+[type="search"] {
+	border: 1px solid #AAA;
+	font-size: 1rem;
+	margin-block: 0.5rem;
+	min-inline-size: 20rem;
+	padding: 0.5rem 0.75rem;
+	-webkit-appearance: none
+}
+
+[type="search"]::-webkit-search-cancel-button {
+	--clear-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.016 15.609l-3.609-3.609 3.609-3.609-1.406-1.406-3.609 3.609-3.609-3.609-1.406 1.406 3.609 3.609-3.609 3.609 1.406 1.406 3.609-3.609 3.609 3.609zM12 2.016q4.125 0 7.055 2.93t2.93 7.055-2.93 7.055-7.055 2.93-7.055-2.93-2.93-7.055 2.93-7.055 7.055-2.93z"/></svg>');
+	background-color: currentColor;
+	display: block;
+	height: 1rem;
+	mask-image: var(--clear-icon);
+	width: 1rem;
+	-webkit-appearance: none;
+	-webkit-mask-image: var(--clear-icon);
+}
+[list]::-webkit-calendar-picker-indicator {
+	display: none !important;
+}
