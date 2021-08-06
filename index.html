@@ -33,8 +33,9 @@
       autocomplete="off"
       autocorrect="off"
       data-api="//dawa.aws.dk/adresser/autocomplete?side=1&per_side=10&q="
-      data-api-cache="0"
+      data-api-cache=":false"
       data-api-key="tekst"
+      data-limit=":true"
       list="dawa"
       minlength="3"
       spellcheck="false"
@@ -57,13 +58,13 @@
   </label>
   <datalist id="jsonplaceholder"><option value=""></option></datalist>
 
-<script src="autosuggest.js"></script>
-<script>
+<script type="module">
+  import autoSuggest from './autosuggest.mjs';
   const inputs = document.querySelectorAll('[list]');
   inputs.forEach(input => {
     if (input.dataset.api) {
       input.addEventListener('autoSuggestSelect', event => { console.info(event.detail) });
-      autoSuggest(input);
+      autoSuggest(input, input.dataset);
     }
   })
 </script>
